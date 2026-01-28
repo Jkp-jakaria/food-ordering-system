@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - Fauget</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-solid" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><span class="logo-icon" style="width:45px;height:45px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;overflow:hidden;">
+    <img src="main logo.jpg" alt="main logo.jpg" style="width:100%;height:100%;object-fit:cover;">
+</span>
+</span>
+                <span class="logo-text">Fauget</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#menu">Food Items</a></li>
+                <li><a href="order-details.html" class="active cart-link">
+                    Cart 
+                    <span class="cart-count" id="cartCount">0</span>
+                </a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Order Details Header -->
+    <section class="order-header">
+        <div class="container">
+            <h1 class="page-title">Order Details</h1>
+            <p class="page-subtitle">Review your order before checkout</p>
+        </div>
+    </section>
+
+    <!-- Order Content -->
+    <section class="order-section">
+        <div class="container">
+            <div class="order-layout">
+                
+                <!-- Order Summary Section (Left) -->
+                <div class="order-items-container">
+                    <div class="order-items-header">
+                        <h2>Your Items</h2>
+                        <span class="item-count" id="itemCount">0 items</span>
+                    </div>
+                    
+                    <!-- Order Items List -->
+                    <div class="order-items" id="orderItems">
+                        <!-- Items will be dynamically inserted here -->
+                    </div>
+
+                    <!-- Empty Order State -->
+                    <div class="empty-order" id="emptyOrder" style="display: none;">
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                        <h3>Your order is empty</h3>
+                        <p>Browse our delicious menu and add items to your order</p>
+                        <a href="index.html" class="btn btn-primary">Back to Home</a>
+                    </div>
+                </div>
+
+                <!-- Pricing Breakdown Section (Right) -->
+                <div class="pricing-container" id="pricingContainer">
+                    <div class="pricing-card">
+                        <h2>Price Details</h2>
+                        
+                        <div class="pricing-breakdown">
+                            <div class="price-row">
+                                <span class="price-label">Subtotal</span>
+                                <span class="price-value" id="subtotal">$0.00</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Delivery Fee</span>
+                                <span class="price-value" id="deliveryFee">$2.99</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Tax (8%)</span>
+                                <span class="price-value" id="tax">$0.00</span>
+                            </div>
+                            <div class="price-divider"></div>
+                            <div class="price-row total">
+                                <span class="price-label">Total</span>
+                                <span class="price-value" id="total">$0.00</span>
+                            </div>
+                        </div>
+
+                        <!-- User Action Buttons -->
+                        <div class="order-actions">
+                            <button class="btn btn-primary btn-full" id="placeOrderBtn" onclick="placeOrder()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                                Place Order
+                            </button>
+                            <a href="index.html" class="btn btn-outline btn-full">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                                </svg>
+                                Continue Shopping
+                            </a>
+                        </div>
+
+                        <!-- Secure Checkout Badge -->
+                        <div class="secure-badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <span>Secure Checkout</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><span class="logo-icon" style="width:45px;height:45px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;overflow:hidden;">
+    <img src="main logo.jpg" alt="main logo.jpg" style="width:100%;height:100%;object-fit:cover;">
+</span>
+</span>
+                        <span class="logo-text">Fauget</span>
+                    </a>
+                    <p>Delicious food delivered fast. Quality ingredients, premium taste, happy customers.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li>6/2 salimullah road</li>
+                        <li>Dhaka 1202</li>
+                        <li>01642527454</li>
+                        <li>order@flavorhaven.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fauget. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon success">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for your order. Your delicious food is being prepared and will be delivered soon.</p>
+            <p class="order-number">Order #<span id="orderNumber">12345</span></p>
+            <a href="index.html" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toastMessage">Item updated!</span>
+    </div>
+
+    <script src="/app.js"></script>
+    <script>
+        // Render order on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderOrder();
+        });
+
+        function renderOrder() {
+            const cart = JSON.parse(localStorage.getItem('flavorCart')) || [];
+            const orderItemsContainer = document.getElementById('orderItems');
+            const emptyOrder = document.getElementById('emptyOrder');
+            const pricingContainer = document.getElementById('pricingContainer');
+            const itemCount = document.getElementById('itemCount');
+
+            // Update cart count in navbar
+            updateCartCount();
+
+            if (cart.length === 0) {
+                orderItemsContainer.innerHTML = '';
+                emptyOrder.style.display = 'flex';
+                pricingContainer.style.display = 'none';
+                itemCount.textContent = '0 items';
+                return;
+            }
+
+            emptyOrder.style.display = 'none';
+            pricingContainer.style.display = 'block';
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            itemCount.textContent = totalItems === 1 ? '1 item' : `${totalItems} items`;
+
+            orderItemsContainer.innerHTML = cart.map(item => `
+                <div class="order-item" data-id="${item.id}">
+                    <div class="order-item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="order-item-details">
+                        <h4 class="order-item-name">${item.name}</h4>
+                        <span class="order-item-price">$${item.price.toFixed(2)} each</span>
+                    </div>
+                    <div class="order-item-quantity">
+                        <button class="qty-btn minus" onclick="updateQuantity(${item.id}, -1)" aria-label="Decrease quantity">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                        </button>
+                        <span class="qty-value">${item.quantity}</span>
+                        <button class="qty-btn plus" onclick="updateQuantity(${item.id}, 1)" aria-label="Increase quantity">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="order-item-total">
+                        $${(item.price * item.quantity).toFixed(2)}
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(${item.id})" aria-label="Remove item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"/>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                            <line x1="10" y1="11" x2="10" y2="17"/>
+                            <line x1="14" y1="11" x2="14" y2="17"/>
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+
+            updatePricing();
+        }
+
+        function updateQuantity(id, change) {
+            let cart = JSON.parse(localStorage.getItem('flavorCart')) || [];
+            const itemIndex = cart.findIndex(item => item.id === id);
+            
+            if (itemIndex > -1) {
+                cart[itemIndex].quantity += change;
+                if (cart[itemIndex].quantity <= 0) {
+                    cart.splice(itemIndex, 1);
+                    showToast('Item removed from order');
+                } else {
+                    showToast('Quantity updated');
+                }
+                localStorage.setItem('flavorCart', JSON.stringify(cart));
+                renderOrder();
+            }
+        }
+
+        function removeItem(id) {
+            let cart = JSON.parse(localStorage.getItem('flavorCart')) || [];
+            cart = cart.filter(item => item.id !== id);
+            localStorage.setItem('flavorCart', JSON.stringify(cart));
+            showToast('Item removed from order');
+            renderOrder();
+        }
+
+        function updatePricing() {
+            const cart = JSON.parse(localStorage.getItem('flavorCart')) || [];
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const deliveryFee = subtotal > 0 ? 2.99 : 0;
+            const tax = subtotal * 0.08;
+            const total = subtotal + deliveryFee + tax;
+
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('deliveryFee').textContent = `$${deliveryFee.toFixed(2)}`;
+            document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+
+            // Disable place order button if cart is empty
+            const placeOrderBtn = document.getElementById('placeOrderBtn');
+            if (subtotal === 0) {
+                placeOrderBtn.disabled = true;
+                placeOrderBtn.style.opacity = '0.5';
+                placeOrderBtn.style.cursor = 'not-allowed';
+            } else {
+                placeOrderBtn.disabled = false;
+                placeOrderBtn.style.opacity = '1';
+                placeOrderBtn.style.cursor = 'pointer';
+            }
+        }
+
+        function placeOrder() {
+            const cart = JSON.parse(localStorage.getItem('flavorCart')) || [];
+            if (cart.length === 0) {
+                showToast('Your cart is empty!');
+                return;
+            }
+
+            // Generate random order number
+            const orderNumber = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('orderNumber').textContent = orderNumber;
+
+            // Show success modal
+            document.getElementById('successModal').classList.add('active');
+
+            // Clear cart
+            localStorage.removeItem('flavorCart');
+            updateCartCount();
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
