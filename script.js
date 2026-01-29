@@ -1,8 +1,3 @@
-// =============================================
-// FOODZONE - Main JavaScript
-// Pure JavaScript - No Frameworks
-// =============================================
-
 // Food Menu Data with Real Images
 const menuData = [
     // Pizza
@@ -31,9 +26,7 @@ const menuData = [
 
     // Dessert
     { id: 17, name: "Chocolate Brownie", category: "dessert", price: 129, image: "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?w=400&h=300&fit=crop", description: "Warm fudgy brownie with vanilla ice cream", rating: 4.9, reviews: 176, badge: "Must Try" },
-    { id: 18, name: "Gulab Jamun", category: "dessert", price: 79, image: "https://images.unsplash.com/photo-1666190077590-3c4289292fc4?w=400&h=300&fit=crop", description: "Soft milk dumplings in sweet syrup", rating: 4.7, reviews: 143 },
     { id: 19, name: "Ice Cream Sundae", category: "dessert", price: 149, image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop", description: "Mixed ice cream with nuts and chocolate sauce", rating: 4.6, reviews: 98 },
-    { id: 20, name: "Rasgulla", category: "dessert", price: 69, image: "https://images.unsplash.com/photo-1601303516361-3c22127e7404?w=400&h=300&fit=crop", description: "Soft cottage cheese balls in light syrup", rating: 4.5, reviews: 112 }
 ];
 
 // Cart Data

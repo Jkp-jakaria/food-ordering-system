@@ -1,7 +1,3 @@
-/* =============================================
-   FOODZONE - FOOD ORDERING SYSTEM
-   ============================================= */
-
 /* CSS Variables */
 :root {
     --bg-primary: #ffffff;
@@ -91,7 +87,6 @@ button { cursor: pointer; font-family: inherit; }
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -99,7 +94,6 @@ button { cursor: pointer; font-family: inherit; }
 .logo-icon {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--accent), #ff6b5b);
     color: white;
     border-radius: 10px;
     display: flex;

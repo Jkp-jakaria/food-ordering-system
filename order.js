@@ -1,8 +1,3 @@
-// =============================================
-// FOODZONE - Order Page JavaScript
-// Pure JavaScript - No Frameworks
-// =============================================
-
 // Cart Data
 let cart = JSON.parse(localStorage.getItem('foodzone_cart')) || [];
 let promoApplied = false;
